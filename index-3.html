@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-es="El Color es un Lenguaje — Sara Viloria" data-en="Color is a Language — Sara Viloria">El Color es un
+    Lenguaje — Sara Viloria</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <canvas id="galaxy"></canvas>
+
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <button id="lang-btn" onclick="toggleLang()" aria-label="Switch language">EN</button>
+
+  <div class="page">
+
+    <section id="hero">
+      <div class="hero-left">
+        <p class="hero-eyebrow" data-es="Sara Viloria · Colorista Certificada Pantone"
+          data-en="Sara Viloria · Pantone Certified Colorist">Sara Viloria · Colorista Certificada Pantone</p>
+        <h1 class="hero-title">
+          <span data-es="EL" data-en="COLOR">EL</span><br>
+          <span class="rainbow" data-es="COLOR" data-en="IS A">COLOR</span><br>
+          <span data-es="ES UN" data-en="LAN-">ES UN</span><br>
+          <span data-es="LENGUAJE" data-en="GUAGE">LENGUAJE</span>
+        </h1>
+        <p class="hero-sub"
+          data-es="La historia del círculo cromático: de Pitágoras a Pantone, un viaje por la ciencia, el arte y la percepción humana."
+          data-en="The history of the color wheel: from Pythagoras to Pantone, a journey through science, art, and human perception.">
+          La historia del círculo cromático: de Pitágoras a Pantone, un viaje por la ciencia, el arte y la percepción
+          humana.</p>
+        <a href="#definicion" class="hero-cta" data-es="Descubrir" data-en="Discover">Descubrir</a>
+      </div>
+
+      <div class="wheel-container">
+        <svg class="wheel-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="b" />
+              <feMerge>
+                <feMergeNode in="b" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <g filter="url(#glow)" opacity=".88">
+            <path d="M200,200 L200,30 A170,170 0 0,1 285,57 Z" fill="#FF0000" />
+            <path d="M200,200 L285,57 A170,170 0 0,1 343,143 Z" fill="#FF6600" />
+            <path d="M200,200 L343,143 A170,170 0 0,1 370,230 Z" fill="#FF9900" />
+            <path d="M200,200 L370,230 A170,170 0 0,1 325,335 Z" fill="#FFDD00" />
+            <path d="M200,200 L325,335 A170,170 0 0,1 230,375 Z" fill="#99CC00" />
+            <path d="M200,200 L230,375 A170,170 0 0,1 130,360 Z" fill="#00AA44" />
+            <path d="M200,200 L130,360 A170,170 0 0,1 57,303 Z" fill="#00BBAA" />
+            <path d="M200,200 L57,303 A170,170 0 0,1 32,195 Z" fill="#0088FF" />
+            <path d="M200,200 L32,195 A170,170 0 0,1 68,97 Z" fill="#0044CC" />
+            <path d="M200,200 L68,97 A170,170 0 0,1 140,35 Z" fill="#6633CC" />
+            <path d="M200,200 L140,35 A170,170 0 0,1 200,30 Z" fill="#9900CC" />
+          </g>
+          <circle cx="200" cy="200" r="98" fill="#08081A" opacity=".95" />
+          <circle cx="200" cy="200" r="68" fill="none" stroke="rgba(200,169,110,.15)" stroke-width="1" />
+          <circle cx="200" cy="200" r="48" fill="#05050F" />
+          <circle cx="200" cy="200" r="19" fill="none" stroke="rgba(200,169,110,.35)" stroke-width="1" />
+          <text x="200" y="205" text-anchor="middle" font-family="Bebas Neue,sans-serif" font-size="13" fill="#C8A96E"
+            letter-spacing="2">COLOR</text>
+          <g stroke="rgba(255,255,255,.18)" stroke-width=".5">
+            <line x1="200" y1="102" x2="200" y2="110" transform="rotate(0 200 200)" />
+            <line x1="200" y1="102" x2="200" y2="110" transform="rotate(30 200 200)" />
+            <line x1="200" y1="102" x2="200" y2="110" transform="rotate(60 200 200)" />
+            <line x1="200" y1="102" x2="200" y2="110" transform="rotate(90 200 200)" />
+            <line x1="200" y1="102" x2="200" y2="110" transform="rotate(120 200 200)" />
+            <line x1="200" y1="102" x2="200" y2="110" transform="rotate(150 200 200)" />
+            <line x1="200" y1="102" x2="200" y2="110" transform="rotate(180 200 200)" />
+            <line x1="200" y1="102" x2="200" y2="110" transform="rotate(210 200 200)" />
+            <line x1="200" y1="102" x2="200" y2="110" transform="rotate(240 200 200)" />
+            <line x1="200" y1="102" x2="200" y2="110" transform="rotate(270 200 200)" />
+            <line x1="200" y1="102" x2="200" y2="110" transform="rotate(300 200 200)" />
+            <line x1="200" y1="102" x2="200" y2="110" transform="rotate(330 200 200)" />
+          </g>
+        </svg>
+      </div>
+
+      <div class="hero-bg-text">COLOR</div>
+      <div class="scroll-ind">
+        <span data-es="Scroll" data-en="Scroll">Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <div class="prism-divider"></div>
+
+    <section id="definicion">
+      <div class="reveal">
+        <span class="section-label" data-es="01 · Definición" data-en="01 · Definition">01 · Definición</span>
+        <h2 class="def-title" data-es="¿QUÉ<br>ES EL<br>COLOR?" data-en="WHAT<br>IS<br>COLOR?">¿QUÉ<br>ES EL<br>COLOR?
+        </h2>
+        <div class="def-img-wrap">
+          <div class="img-slot" title="Agrega tu imagen aquí">
+            <div class="img-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <polyline points="21 15 16 10 5 21" />
+              </svg>
+              <span data-es="Tu imagen aquí" data-en="Your image here">Tu imagen aquí</span>
+            </div>
+            <img src="" alt="Imagen definición color">
+          </div>
+          <p class="upload-hint" data-es="Reemplaza src=&quot;&quot; con la ruta de tu imagen"
+            data-en="Replace src=&quot;&quot; with your image path">Reemplaza src="" con la ruta de tu imagen</p>
+        </div>
+      </div>
+
+      <div class="reveal" style="transition-delay:.2s">
+        <div class="def-card">
+          <p class="def-source">RAE</p>
+          <p class="def-text"
+            data-es="Sensación producida por los rayos luminosos que impresionan los órganos visuales y que depende de la longitud de onda."
+            data-en="Sensation produced by light rays that impress the visual organs and depends on the wavelength.">
+            Sensación producida por los rayos luminosos que impresionan los órganos visuales y que depende de la
+            longitud de onda.</p>
+        </div>
+        <div class="def-card">
+          <p class="def-source">Oxford Dictionary</p>
+          <p class="def-text"
+            data-es="La apariencia que tienen las cosas y que resulta de la forma en que reflejan la luz. El rojo, el naranja y el verde son colores."
+            data-en="The appearance of things resulting from the way they reflect light. Red, orange, and green are colors.">
+            La apariencia que tienen las cosas y que resulta de la forma en que reflejan la luz. El rojo, el naranja y
+            el verde son colores.</p>
+        </div>
+        <div class="def-card" style="background:rgba(200,169,110,.04);border-color:rgba(200,169,110,.2)">
+          <p class="def-source" data-es="Principio fundamental" data-en="Core principle">Principio fundamental</p>
+          <p class="def-text" style="font-family:'Playfair Display',serif;font-style:italic;color:rgba(242,237,228,.88)"
+            data-es="Es más fácil definir cómo nos hace sentir algo, que explicar lo que significa en sí mismo."
+            data-en="It is easier to define how something makes us feel than to explain what it means in itself.">Es más
+            fácil definir cómo nos hace sentir algo, que explicar lo que significa en sí mismo.</p>
+        </div>
+        <div class="def-card" style="background:rgba(200,169,110,.04);border-color:rgba(200,169,110,.2)">
+          <p class="def-source" data-es="Sara Viloria" data-en="Sara Viloria">Sara Viloria</p>
+          <p class="def-text" style="font-family:'Playfair Display',serif;font-style:italic;color:rgba(242,237,228,.88)"
+            data-es="Una persona con colores nunca está sola." data-en="A person with colors is never alone.">Una
+            persona con colores nunca está sola.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="prism-divider"></div>
+
+    <section id="historia">
+      <div class="historia-header reveal">
+        <h2 class="historia-title" data-es="LA<br>HISTORIA<br>DEL CÍRCULO" data-en="THE<br>HISTORY<br>OF COLOR">
+          LA<br>HISTORIA<br>DEL CÍRCULO</h2>
+        <p class="historia-intro"
+          data-es="Desde la antigua Grecia hasta hoy, grandes mentes transformaron nuestra comprensión del color."
+          data-en="From ancient Greece to today, great minds transformed our understanding of color.">Desde la antigua
+          Grecia hasta hoy, grandes mentes transformaron nuestra comprensión del color.</p>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline-item reveal">
+          <div class="t-year">~450<small data-es="a.C." data-en="BC">a.C.</small></div>
+          <div class="t-line">
+            <div class="t-dot"></div>
+          </div>
+          <div>
+            <h3 class="t-name"><em data-es="Filolao" data-en="Philolaus">Filolao</em> <span data-es="de Crotona"
+                data-en="of Croton">de Crotona</span></h3>
+            <p class="t-desc"
+              data-es="El filósofo pitagórico fue la primera persona conocida en postular que la Tierra gira alrededor de un 'fuego central'. Esta teoría sería retomada por Copérnico para desarrollar la teoría heliocéntrica, en la que Newton se basó para su teoría de la gravedad."
+              data-en="The Pythagorean philosopher was the first known person to postulate that the Earth revolves around a 'central fire'. This theory was later used by Copernicus to develop the heliocentric theory, on which Newton based his theory of gravity.">
+              El filósofo pitagórico fue la primera persona conocida en postular que la Tierra gira alrededor de un
+              "fuego central". Esta teoría sería retomada por Copérnico para desarrollar la teoría heliocéntrica, en la
+              que Newton se basó para su teoría de la gravedad.</p>
+            <div class="img-slot" style="max-width:480px;" title="Imagen: Filolao / círculo pitagórico">
+              <div class="img-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <polyline points="21 15 16 10 5 21" />
+                </svg>
+                <span data-es="Imagen: Filolao" data-en="Image: Philolaus">Imagen: Filolao</span>
+              </div>
+              <a href="https://ibb.co/XrC9sdHW"><img src="https://i.ibb.co/XrC9sdHW/IMG-20260609-WA0034.jpg" alt="IMG-20260609-WA0034" border="0"></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal" style="transition-delay:.15s">
+          <div class="t-year">1666</div>
+          <div class="t-line">
+            <div class="t-dot"></div>
+          </div>
+          <div>
+            <h3 class="t-name"><em>Isaac Newton</em></h3>
+            <p class="t-desc"
+              data-es="Newton demostró que la luz blanca contiene todos los colores del espectro al pasarla por un prisma. Identificó 7 colores y los organizó en el primer círculo cromático. Sus experimentos revolucionaron para siempre la comprensión de la luz y el color."
+              data-en="Newton demonstrated that white light contains all spectrum colors when passed through a prism. He identified 7 colors and organized them into the first color wheel. His experiments forever revolutionized the understanding of light and color.">
+              Newton demostró que la luz blanca contiene todos los colores del espectro al pasarla por un prisma.
+              Identificó 7 colores y los organizó en el primer círculo cromático.</p>
+            <div class="img-slot" style="max-width:480px;" title="Imagen: Newton / prisma / ojo">
+              <div class="img-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <polyline points="21 15 16 10 5 21" />
+                </svg>
+                <span data-es="Imagen: Newton & el prisma" data-en="Image: Newton & the prism">Imagen: Newton & el
+                  prisma</span>
+              </div>
+              <a href="https://ibb.co/qLj40SjP"><img src="https://i.ibb.co/qLj40SjP/IMG-20260609-WA0033.jpg" alt="IMG-20260609-WA0033" border="0"></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal" style="transition-delay:.3s">
+          <div class="t-year">1810</div>
+          <div class="t-line">
+            <div class="t-dot"></div>
+          </div>
+          <div>
+            <h3 class="t-name"><em>Goethe</em></h3>
+            <p class="t-desc"
+              data-es="El poeta y científico alemán publicó su Teoría de los Colores, enfocándose en la percepción psicológica y emocional, en contraposición a la visión puramente física de Newton."
+              data-en="The German poet and scientist published his Theory of Colors, focusing on psychological and emotional perception, in contrast to Newton's purely physical approach.">
+              El poeta y científico alemán publicó su Teoría de los Colores, enfocándose en la percepción psicológica y
+              emocional del color.</p>
+            <div class="img-slot" style="max-width:480px;">
+              <div class="img-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <polyline points="21 15 16 10 5 21" />
+                </svg>
+                <span data-es="Imagen: Goethe / teoría color" data-en="Image: Goethe / color theory">Imagen: Goethe /
+                  teoría color</span>
+              </div>
+              <a href="https://ibb.co/v4rwJbbJ"><img src="https://i.ibb.co/v4rwJbbJ/IMG-20260609-WA0031.jpg" alt="IMG-20260609-WA0031" border="0"></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal" style="transition-delay:.45s">
+          <div class="t-year" data-es="HOY" data-en="TODAY">HOY</div>
+          <div class="t-line">
+            <div class="t-dot"></div>
+          </div>
+          <div>
+            <h3 class="t-name"><em>Pantone</em></h3>
+            <p class="t-desc"
+              data-es="El sistema de clasificación de colores más reconocido del mundo. Cada año, Pantone elige el Color del Año que influye tendencias globales en diseño, moda, arquitectura e industria."
+              data-en="The world's most recognized color classification system. Each year, Pantone selects the Color of the Year, influencing global trends in design, fashion, architecture, and industry.">
+              El sistema de clasificación de colores más reconocido del mundo. Cada año, Pantone elige el Color del Año
+              que influye tendencias globales.</p>
+            <div class="img-slot" style="max-width:480px;">
+              <div class="img-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <polyline points="21 15 16 10 5 21" />
+                </svg>
+                <span data-es="Imagen: Pantone / círculo cromático" data-en="Image: Pantone / color wheel">Imagen:
+                  Pantone / círculo cromático</span>
+              </div>
+              <a href="https://ibb.co/TxQLmBBV"><img src="https://i.ibb.co/TxQLmBBV/IMG-20260609-WA0038.jpg" alt="IMG-20260609-WA0038" border="0"></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="prism-divider"></div>
+
+    <section id="newton">
+      <div class="reveal">
+        <span class="section-label" data-es="02 · El hombre detrás del prisma"
+          data-en="02 · The man behind the prism">02 · El hombre detrás del prisma</span>
+        <h2 class="newton-title">ISAAC<br>NEWTON<br><span style="color:var(--gold)" data-es="& EL COLOR"
+            data-en="& COLOR">& EL COLOR</span></h2>
+        <p class="newton-intro"
+          data-es="El científico más influyente en la historia del color tenía una vida personal sorprendentemente turbulenta."
+          data-en="The most influential scientist in color history had a surprisingly turbulent personal life.">El
+          científico más influyente en la historia del color tenía una vida personal sorprendentemente turbulenta.</p>
+        <div class="img-slot" style="max-width:420px;">
+          <div class="img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <polyline points="21 15 16 10 5 21" />
+            </svg>
+            <span data-es="Imagen: Retrato de Newton" data-en="Image: Newton portrait">Imagen: Retrato de Newton</span>
+          </div>
+          <a href="https://ibb.co/gMkLZ7cT"><img src="https://i.ibb.co/gMkLZ7cT/IMG-20260609-WA0036.jpg" alt="IMG-20260609-WA0036" border="0"></a>
+        </div>
+      </div>
+
+      <div class="reveal" style="transition-delay:.2s">
+        <div class="fact-item" data-es="Nació quince semanas antes de tiempo — era prematuro."
+          data-en="Born fifteen weeks premature.">Nació quince semanas antes de tiempo — era prematuro.</div>
+        <div class="fact-item" data-es="Era tartamudo desde niño." data-en="He stuttered from childhood.">Era tartamudo
+          desde niño.</div>
+        <div class="fact-item bold" data-es="Amenazó con quemar la casa de su madre y su padrastro, con ellos adentro."
+          data-en="He threatened to burn down his mother's and stepfather's house, with them inside.">Amenazó con quemar
+          la casa de su madre y su padrastro, con ellos adentro.</div>
+        <div class="fact-item"
+          data-es="En su año como miembro del Parlamento, habló solo una vez: para pedirle a alguien que cerrara una ventana."
+          data-en="During his year as a Member of Parliament, he spoke only once — to ask someone to close a window.">En
+          su año como miembro del Parlamento, habló solo una vez: para pedirle a alguien que cerrara una ventana.</div>
+        <div class="fact-item"
+          data-es="Desarrolló actitudes excéntricas y fobias hacia el final de su vida, posiblemente por intoxicación con mercurio."
+          data-en="He developed eccentric behaviors and phobias late in life, possibly from mercury poisoning from his alchemical experiments.">
+          Desarrolló actitudes excéntricas y fobias hacia el final de su vida, posiblemente por intoxicación con
+          mercurio.</div>
+        <div class="fact-item highlight"
+          data-es="A pesar de todo, sus experimentos con el prisma en 1666 revolucionaron para siempre nuestra comprensión de la luz y el color."
+          data-en="Despite everything, his prism experiments in 1666 forever revolutionized our understanding of light and color.">
+          A pesar de todo, sus experimentos con el prisma en 1666 revolucionaron para siempre nuestra comprensión de la
+          luz y el color.</div>
+      </div>
+    </section>
+
+    <div class="prism-divider"></div>
+
+    <section id="circulo">
+      <span class="section-label reveal" data-es="03 · El Círculo Cromático" data-en="03 · The Color Wheel">03 · El
+        Círculo Cromático</span>
+      <h2 class="circulo-title reveal" data-es="CUALQUIER<br>COMBINACIÓN<br><span class='green-grad'>FUNCIONA</span>"
+        data-en="ANY<br>COMBINATION<br><span class='green-grad'>WORKS</span>">CUALQUIER<br>COMBINACIÓN<br><span
+          class="green-grad">FUNCIONA</span></h2>
+      <p class="circulo-sub reveal" data-es="Las 6 armonías fundamentales del color"
+        data-en="The 6 fundamental color harmonies">Las 6 armonías fundamentales del color</p>
+
+      <div class="combinations-grid reveal">
+        <div class="combo-card">
+          <div class="combo-swatches">
+            <div class="swatch" style="background:#FF3B30"></div>
+            <div class="swatch" style="background:#FF6B4A"></div>
+            <div class="swatch" style="background:#FF9478"></div>
+          </div>
+          <p class="combo-name" data-es="Monocromático" data-en="Monochromatic">Monocromático</p>
+          <p class="combo-desc" data-es="Un solo tono en diferentes saturaciones. Elegante y cohesivo."
+            data-en="A single hue in different saturations. Elegant and cohesive.">Un solo tono en diferentes
+            saturaciones. Elegante y cohesivo.</p>
+        </div>
+        <div class="combo-card">
+          <div class="combo-swatches">
+            <div class="swatch" style="background:#FF3B30"></div>
+            <div class="swatch" style="background:#30CFFF"></div>
+          </div>
+          <p class="combo-name" data-es="Complementario" data-en="Complementary">Complementario</p>
+          <p class="combo-desc" data-es="Colores opuestos en el círculo. Alto contraste y máximo impacto."
+            data-en="Opposite colors on the wheel. High contrast and maximum impact.">Colores opuestos en el círculo.
+            Alto contraste y máximo impacto.</p>
+        </div>
+        <div class="combo-card">
+          <div class="combo-swatches">
+            <div class="swatch" style="background:#FF3B30"></div>
+            <div class="swatch" style="background:#30FF7A"></div>
+            <div class="swatch" style="background:#3B30FF"></div>
+          </div>
+          <p class="combo-name" data-es="Triádico" data-en="Triadic">Triádico</p>
+          <p class="combo-desc" data-es="Tres colores equidistantes. Vibrante y balanceado."
+            data-en="Three equidistant colors. Vibrant and balanced.">Tres colores equidistantes. Vibrante y balanceado.
+          </p>
+        </div>
+        <div class="combo-card">
+          <div class="combo-swatches">
+            <div class="swatch" style="background:#FF9500"></div>
+            <div class="swatch" style="background:#FFDD00"></div>
+            <div class="swatch" style="background:#99CC00"></div>
+          </div>
+          <p class="combo-name" data-es="Análogo" data-en="Analogous">Análogo</p>
+          <p class="combo-desc" data-es="Colores adyacentes. Armónico y visualmente cómodo."
+            data-en="Adjacent colors. Harmonious and visually comfortable.">Colores adyacentes. Armónico y visualmente
+            cómodo.</p>
+        </div>
+        <div class="combo-card">
+          <div class="combo-swatches">
+            <div class="swatch" style="background:#FF3B30"></div>
+            <div class="swatch" style="background:#00AA44"></div>
+            <div class="swatch" style="background:#0088FF"></div>
+            <div class="swatch" style="background:#FF9500"></div>
+          </div>
+          <p class="combo-name" data-es="Tetrádico" data-en="Tetradic">Tetrádico</p>
+          <p class="combo-desc" data-es="Cuatro colores en cuadrado. Rico y complejo."
+            data-en="Four colors in a square. Rich and complex.">Cuatro colores en cuadrado. Rico y complejo.</p>
+        </div>
+        <div class="combo-card">
+          <div class="combo-swatches">
+            <div class="swatch" style="background:#FF3B30"></div>
+            <div class="swatch" style="background:#00BBAA"></div>
+            <div class="swatch" style="background:#0044CC"></div>
+          </div>
+          <p class="combo-name" data-es="Split Complementario" data-en="Split Complementary">Split Complementario</p>
+          <p class="combo-desc" data-es="Un color más los dos adyacentes a su complementario. Dinámico y sofisticado."
+            data-en="One color plus the two adjacent to its complement. Dynamic and sophisticated.">Un color más los dos
+            adyacentes a su complementario. Dinámico y sofisticado.</p>
+        </div>
+      </div>
+
+    
+      <div class="circulo-img-row reveal">
+        <div>
+          <div class="img-slot" title="Imagen: círculo cromático / combinaciones">
+            <div class="img-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <polyline points="21 15 16 10 5 21" />
+              </svg>
+              <span data-es="Círculo cromático" data-en="Color wheel">Círculo cromático</span>
+            </div>
+            <a href="https://ibb.co/V0xZSTT3"><img src="https://i.ibb.co/V0xZSTT3/IMG-20260609-WA0039.jpg" alt="IMG-20260609-WA0039" border="0"></a>
+          </div>
+        </div>
+        <div>
+          <div class="img-slot" title="Imagen: arte / Picasso / Michelangelo">
+            <div class="img-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <polyline points="21 15 16 10 5 21" />
+              </svg>
+              <span data-es="Arte y color" data-en="Art and color">Arte y color</span>
+            </div>
+            <a href="https://ibb.co/Zz8rg2wq"><img src="https://i.ibb.co/Zz8rg2wq/IMG-20260609-WA0047.jpg" alt="IMG-20260609-WA0047" border="0"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="prism-divider"></div>
+
+    <section id="quote">
+      <div class="quote-glow"></div>
+      <h2 class="quote-text reveal">
+        "<span class="rainbow" data-es="COLOR" data-en="COLOR">COLOR</span><br>
+        <span data-es="ES" data-en="IS">ES</span><br>
+        <span data-es="DIOS, ARTE" data-en="GOD, ART">DIOS, ARTE</span><br>
+        <span data-es="Y VIDA" data-en="AND LIFE">Y VIDA</span>"
+      </h2>
+      <p class="quote-caption reveal" style="transition-delay:.3s">— Sara Viloria</p>
+    </section>
+
+    <div class="prism-divider"></div>
+
+    <section id="importancia">
+      <div class="imp-header reveal">
+        <span class="section-label" data-es="04 · Aplicaciones" data-en="04 · Applications">04 · Aplicaciones</span>
+        <h2 class="imp-title" data-es="¿POR QUÉ<br>ES IMPORTANTE<br>SABER DE COLOR?"
+          data-en="WHY IS IT<br>IMPORTANT TO<br>KNOW COLOR?">¿POR QUÉ<br>ES IMPORTANTE<br>SABER DE COLOR?</h2>
+      </div>
+
+      <div class="imp-grid">
+        <div class="imp-card reveal">
+          <div class="imp-accent"></div>
+          <div class="imp-num">01</div>
+          <h3 class="imp-card-title" data-es="Objetivar lo subjetivo" data-en="Objectify the subjective">Objetivar lo
+            subjetivo</h3>
+          <p class="imp-card-text"
+            data-es="El color nos permite traducir emociones, percepciones y estados de ánimo en un lenguaje visual compartido y comunicable."
+            data-en="Color allows us to translate emotions, perceptions, and moods into a shared, communicable visual language.">
+            El color nos permite traducir emociones, percepciones y estados de ánimo en un lenguaje visual compartido y
+            comunicable.</p>
+          <div class="imp-card-img">
+            <div class="img-slot img-slot-square" title="Imagen aplicación 01">
+              <div class="img-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <polyline points="21 15 16 10 5 21" />
+                </svg>
+              </div>
+              <a href="https://ibb.co/QF2sy22d"><img src="https://i.ibb.co/QF2sy22d/IMG-20260609-WA0029.jpg" alt="IMG-20260609-WA0029" border="0"></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="imp-card reveal" style="transition-delay:.15s">
+          <div class="imp-accent"></div>
+          <div class="imp-num">02</div>
+          <h3 class="imp-card-title" data-es="Productos y servicios efectivos"
+            data-en="Effective products and services">Productos y servicios efectivos</h3>
+          <p class="imp-card-text"
+            data-es="Áreas gráficas, textil, bordado, tejido, ilustración, diseño, publicidad, colorimetría y alimentaria. El color impacta en todas las industrias."
+            data-en="Graphic arts, textile, embroidery, weaving, illustration, design, advertising, colorimetry, and food industry. Color impacts every industry.">
+            Áreas gráficas, textil, ilustración, diseño, publicidad, colorimetría y alimentaria. El color impacta en
+            todas las industrias.</p>
+          <div class="imp-card-img">
+            <div class="img-slot img-slot-square">
+              <div class="img-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <polyline points="21 15 16 10 5 21" />
+                </svg>
+              </div>
+              <a href="https://ibb.co/G3b65B1s"><img src="https://i.ibb.co/G3b65B1s/IMG-20260609-WA0048.jpg" alt="IMG-20260609-WA0048" border="0"></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="imp-card reveal" style="transition-delay:.3s">
+          <div class="imp-accent"></div>
+          <div class="imp-num">03</div>
+          <h3 class="imp-card-title" data-es="Inspiración administrada" data-en="Managed inspiration">Inspiración
+            administrada</h3>
+          <p class="imp-card-text"
+            data-es="Utilizar el entorno como una fuente de inspiración bien administrada, reconociendo patrones cromáticos en la naturaleza y la cultura."
+            data-en="Using the environment as a well-managed source of inspiration, recognizing chromatic patterns in nature and culture.">
+            Utilizar el entorno como una fuente de inspiración bien administrada, reconociendo patrones cromáticos en la
+            naturaleza y la cultura.</p>
+          <div class="imp-card-img">
+            <div class="img-slot img-slot-square">
+              <div class="img-placeholder">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <polyline points="21 15 16 10 5 21" />
+                </svg>
+              </div>
+              <a href="https://ibb.co/B206hqQH"><img src="https://i.ibb.co/B206hqQH/IMG-20260609-WA0030.jpg" alt="IMG-20260609-WA0030" border="0"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="prism-divider"></div>
+
+    <section id="autora">
+      <div class="reveal">
+        <span class="autora-eyebrow" data-es="La autora" data-en="The author">La autora</span>
+        <h2 class="autora-name">SARA<br>VILORIA</h2>
+        <p class="autora-bio"
+          data-es="Licenciada en Artes Visuales, diplomada en Ilustración y Arte en su expresión territorial. Colorista Certificada por Leatrice Eiseman, Directora Ejecutiva del Pantone Institute."
+          data-en="Bachelor of Visual Arts, diploma in Illustration and Territorial Art. Certified Colorist by Leatrice Eiseman, Executive Director of the Pantone Institute.">
+          Licenciada en Artes Visuales, diplomada en Ilustración y Arte en su expresión territorial. Colorista
+          Certificada por Leatrice Eiseman, Directora Ejecutiva del Pantone Institute.</p>
+        <p class="autora-bio"
+          data-es="Ha trabajado como Coordinadora de Educación del Museo de Artes Visuales MAVI de Santiago, Mediadora Cultural para el Departamento de Pueblos Originarios y Curadora de Arte."
+          data-en="She has worked as Education Coordinator at the MAVI Visual Arts Museum in Santiago, Cultural Mediator for the Department of Indigenous Peoples, and Art Curator.">
+          Ha trabajado como Coordinadora de Educación del Museo de Artes Visuales MAVI de Santiago, Mediadora Cultural
+          para el Departamento de Pueblos Originarios y Curadora de Arte.</p>
+        <p class="autora-bio"
+          data-es="Pintora, poeta y escritora. Ganadora de la Beca Fundación Neruda (2021) y el Premio Lily Peter Fellowship (USA). Autora de Color y Acuarela y Cartas para Siena."
+          data-en="Painter, poet, and writer. Winner of the Neruda Foundation Grant (2021) and the Lily Peter Fellowship (USA). Author of Color and Watercolor and Letters for Siena.">
+          Pintora, poeta y escritora. Ganadora de la Beca Fundación Neruda (2021) y el Premio Lily Peter Fellowship
+          (USA). Autora de <em>Color y Acuarela: guía breve para un mundo infinito</em> y <em>Cartas para Siena</em>.
+        </p>
+        <div class="autora-tags">
+          <span class="tag" data-es="Colorista Pantone" data-en="Pantone Colorist">Colorista Pantone</span>
+          <span class="tag" data-es="Artes Visuales" data-en="Visual Arts">Artes Visuales</span>
+          <span class="tag" data-es="Curadora" data-en="Curator">Curadora</span>
+          <span class="tag" data-es="Escritora" data-en="Writer">Escritora</span>
+          <span class="tag" data-es="Beca Neruda 2021" data-en="Neruda Grant 2021">Beca Neruda 2021</span>
+        </div>
+        <div class="sponsors">
+          <span class="sponsor">Zeiss</span>
+          <span class="sponsor">Fujifilm</span>
+          <span class="sponsor">Pantone</span>
+          <span class="sponsor">Sarav</span>
+        </div>
+      </div>
+
+      <div class="autora-photo-wrap reveal" style="transition-delay:.3s">
+        <div class="autora-frame">
+          <div class="img-slot autora-img-slot" title="Foto de Sara Viloria">
+            <div class="img-placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <polyline points="21 15 16 10 5 21" />
+              </svg>
+              <span data-es="Foto: Sara Viloria" data-en="Photo: Sara Viloria">Foto: Sara Viloria</span>
+            </div>
+            <a href="https://ibb.co/rRcykCG0"><img src="https://i.ibb.co/rRcykCG0/IMG-20260609-WA0043.jpg" alt="IMG-20260609-WA0043" border="0"></a>
+          </div>
+        </div>
+        <p class="upload-hint" data-es="Reemplaza src=&quot;&quot; con la ruta de tu foto"
+          data-en="Replace src=&quot;&quot; with your photo path">Reemplaza src="" con la ruta de tu foto</p>
+      </div>
+    </section>
+
+
+    <footer>
+      <div class="footer-brand" data-es="COLOR · ARTE · VIDA" data-en="COLOR · ART · LIFE">COLOR · ARTE · VIDA</div>
+      <p class="footer-copy" data-es="Basado en la conferencia de Sara Viloria · La Historia del Círculo Cromático"
+        data-en="Based on Sara Viloria's lecture · The History of the Color Wheel">Basado en la conferencia de Sara
+        Viloria · La Historia del Círculo Cromático</p>
+    </footer>
+
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
