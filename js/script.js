@@ -132,7 +132,18 @@ document.addEventListener('DOMContentLoaded', () => {
           el.getAttribute(`data-${lang}`);
 
       });
+      /* ===== CURSOR ===== */
+const cursor     = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursorRing');
 
-  };
+if (cursor && cursorRing) {
+  document.addEventListener('mousemove', e => {
+    cursor.style.transform     = `translate(${e.clientX}px, ${e.clientY}px)`;
+    cursorRing.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+  });
+}
 
-});
+  }
+  
+}
+);

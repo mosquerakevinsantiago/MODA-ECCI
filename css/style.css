@@ -20,29 +20,50 @@ body {
   font-family: 'Inter', sans-serif;
   font-weight: 300;
   overflow-x: hidden;
-  cursor: none;
 }
 
 /* ── GALAXY CANVAS ── */
 #galaxy {
   position: fixed;
-  inset: 0;
-  z-index: 0;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
   pointer-events: none;
 }
 
-/* ── CUSTOM CURSOR (desktop only) ── */
+/* ── CURSOR ── */
 .cursor, .cursor-ring {
   position: fixed;
   border-radius: 50%;
   pointer-events: none;
   z-index: 9999;
+  top: 0; left: 0;
   display: none;
+  will-change: transform;
 }
+
 @media (hover: hover) and (pointer: fine) {
   body { cursor: none; }
-  .cursor { display: block; width: 10px; height: 10px; background: var(--gold); top: -5px; left: -5px; transition: transform .15s, background .3s; mix-blend-mode: difference; }
-  .cursor-ring { display: block; width: 36px; height: 36px; border: 1px solid rgba(200,169,110,.35); top: -18px; left: -18px; }
+
+  .cursor {
+    display: block;
+    width: 12px;
+    height: 12px;
+    background: var(--gold);
+    margin-left: -6px;
+    margin-top: -6px;
+    box-shadow: 0 0 8px rgba(200,169,110,0.9), 0 0 20px rgba(200,169,110,0.4);
+  }
+
+  .cursor-ring {
+    display: block;
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid rgba(200,169,110,.6);
+    margin-left: -18px;
+    margin-top: -18px;
+    transition: border-color .3s;
+  }
 }
 
 /* ── LANG BUTTON ── */
@@ -187,35 +208,46 @@ section { position: relative; }
 .img-slot {
   width: 100%;
   aspect-ratio: 16/9;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
   background: rgba(255,255,255,.03);
   border: 1.5px dashed rgba(200,169,110,.3);
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+}
+.img-slot svg { width: 32px; height: 32px; opacity: .4; }
+.img-placeholder {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
   gap: .6rem;
   color: rgba(200,169,110,.45);
   font-size: .72rem;
   letter-spacing: .2em;
   text-transform: uppercase;
-  overflow: hidden;
-  transition: border-color .3s;
-  position: relative;
 }
-.img-slot:hover { border-color: rgba(200,169,110,.6); }
-.img-slot svg { width: 32px; height: 32px; opacity: .4; }
-.img-slot img {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: none;
-}
-.img-slot.has-img img { display: block; }
-.img-slot.has-img .img-placeholder { display: none; }
-.img-placeholder { display: flex; flex-direction: column; align-items: center; gap: .5rem; }
 .img-slot-square { aspect-ratio: 1; }
 .img-slot-portrait { aspect-ratio: 3/4; }
+
+/* Imagen real: ocupa todo el slot */
+.img-slot a {
+  position: absolute;
+  inset: 0;
+  display: block;
+  line-height: 0;
+}
+.img-slot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+/* Ocultar placeholder cuando hay imagen */
+.img-slot:has(img[src]:not([src=""])) .img-placeholder { display: none; }
+/* Ocultar img si src está vacío */
+.img-slot img[src=""] { display: none; }
 
 /* ── UPLOAD HINT ── */
 .upload-hint {
@@ -479,8 +511,6 @@ footer {
 .reveal.visible { opacity:1; transform:translateY(0); }
 
 /* ═══ RESPONSIVE ═══ */
-
-/* Tablet ≤ 900px */
 @media (max-width: 900px) {
   #hero { grid-template-columns: 1fr; padding: 7rem 6vw 5rem; }
   .wheel-container { display: none; }
@@ -494,7 +524,6 @@ footer {
   footer { flex-direction: column; text-align: center; }
 }
 
-/* Mobile ≤ 600px */
 @media (max-width: 600px) {
   #hero { padding: 6rem 5vw 4rem; }
   .historia-header { flex-direction: column; align-items: flex-start; }
@@ -513,7 +542,6 @@ footer {
   .def-card { padding: 1.5rem; }
 }
 
-/* Large screens ≥ 1400px */
 @media (min-width: 1400px) {
   #hero, #definicion, #newton, #autora, #importancia, #historia, #circulo, #quote, footer {
     padding-left: max(8vw, calc((100vw - 1300px)/2));
@@ -526,67 +554,14 @@ footer {
   .reveal { transition: none; }
 }
 
-/* ===== FIX PÁGINA NEGRA ===== */
+/* ═══ FIXES ═══ */
+.page { position: relative; z-index: 10; }
 
-.page{
-    position: relative;
-    z-index: 10;
-}
+#hero, #definicion, #historia, #newton,
+#circulo, #importancia, #autora, #quote { position: relative; z-index: 2; }
 
-#galaxy{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    pointer-events: none;
-}
-
-section,
-footer,
-div,
-h1,
-h2,
-h3,
-p,
-span,
-a{
-    visibility: visible;
-}
-
-/* Mostrar siempre el contenido */
-.reveal,
-.reveal.visible{
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-}
-
-/* Evitar problemas de capas */
-#hero,
-#definicion,
-#historia,
-#newton,
-#circulo,
-#importancia,
-#autora,
-#quote{
-    position: relative;
-    z-index: 2;
-}
-
-/* Color de texto seguro */
-body{
-    background: #05050F;
-    color: #F0EBE0;
-}
-
-/* Evita que imágenes vacías rompan el diseño */
-.img-slot img[src=""]{
-    display: none;
-}
-
-.img-placeholder{
-    display: flex !important;
+.reveal, .reveal.visible {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
 }
