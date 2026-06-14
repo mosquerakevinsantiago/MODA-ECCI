@@ -565,3 +565,225 @@ footer {
   transform: none !important;
   transition: none !important;
 }
+
+/* ===== MENU RESPONSIVE ===== */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.menu-toggle{
+    display:none;
+    cursor:pointer;
+    font-size:2rem;
+    color:white;
+    z-index:1001;
+}
+
+@media (max-width:768px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .navbar ul{
+        position:fixed;
+        top:0;
+        right:-100%;
+        width:260px;
+        height:100vh;
+        background:rgba(5,8,22,.98);
+        backdrop-filter:blur(10px);
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        gap:30px;
+        transition:.4s;
+        z-index:1000;
+    }
+
+    .navbar ul.active{
+        right:0;
+    }
+
+    .navbar ul li{
+        list-style:none;
+    }
+
+    .navbar ul li a{
+        font-size:1.2rem;
+    }
+}
+.menu-toggle{
+    position:fixed;
+    top:1rem;
+    left:1rem;
+    z-index:6000;
+    display:none;
+    font-size:2rem;
+    color:var(--gold);
+    cursor:pointer;
+}
+
+@media(max-width:768px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    nav ul{
+        position:fixed;
+        top:0;
+        left:-100%;
+        width:280px;
+        height:100vh;
+
+        background:#05050F;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        gap:2rem;
+
+        transition:.4s;
+        z-index:5500;
+    }
+
+    nav ul.active{
+        left:0;
+    }
+}
+
+/* =======================================
+   MENU LATERAL MODERNO
+======================================= */
+
+#nav-drawer{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 280px;
+    height: 100vh;
+
+    padding: 25px 20px;
+
+    background: rgba(5,5,15,.95);
+    backdrop-filter: blur(14px);
+
+    border-right: 1px solid rgba(200,169,110,.15);
+
+    z-index: 6000;
+    overflow-y: auto;
+}
+
+.nav-brand{
+    margin-bottom: 25px;
+}
+
+.nav-brand h1{
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: var(--off-white);
+    line-height: 1;
+}
+
+.nav-brand p{
+    color: var(--gold);
+    font-size: .8rem;
+    margin-top: .4rem;
+}
+
+.nav-list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-list li{
+    width: 100%;
+}
+
+.nav-item{
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px 15px;
+
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 10px;
+
+    color: var(--off-white);
+    font-size: .9rem;
+
+    cursor: pointer;
+
+    transition: all .3s ease;
+}
+
+.nav-item:hover{
+    background: rgba(200,169,110,.12);
+    border-color: var(--gold);
+    transform: translateX(6px);
+}
+
+.nav-item.active{
+    border-left: 4px solid var(--gold);
+    background: rgba(200,169,110,.15);
+}
+
+.nav-footer{
+    margin-top: 25px;
+    color: var(--gold);
+    text-align: center;
+    letter-spacing: .2em;
+    font-size: .75rem;
+}
+
+/* mover contenido principal */
+.page{
+    margin-left: 280px;
+}
+
+/* botón hamburguesa */
+.menu-toggle{
+    position: fixed;
+    top: 15px;
+    left: 15px;
+
+    font-size: 2rem;
+    color: var(--gold);
+
+    z-index: 7000;
+    cursor: pointer;
+
+    display: none;
+}
+
+/* móvil */
+@media(max-width:768px){
+
+    .menu-toggle{
+        display:block;
+    }
+
+    #nav-drawer{
+        left:-280px;
+        transition:.4s;
+    }
+
+    #nav-drawer.active{
+        left:0;
+    }
+
+    .page{
+        margin-left:0;
+    }
+}
